@@ -19,11 +19,11 @@
 using namespace std;
 
 // array for the board
-string boardArray[9] = {"1", "2", "3", "4", "5", "6", "7", "8", "9"};
+string boardArray[9] = {"0", "1", "2", "3", "4", "5", "6", "7", "8"};
 
 // variables
 int playerChoice = 0;
-int playerTurn = 1;
+int playerTurn = 0;
 bool isDraw = false;
 
 // function that determines whether the playerTurn is for X or O using whether
@@ -74,20 +74,22 @@ void updateBoard(string (&board)[9], int choice, int turn) {
 int main() {
     std::cout << "Hello, World!" << std::endl;
 
-    displayBoard();
-    // is there a isWinner? if so, display isWinner message, exit. else continue
+    while (playerTurn < 3) {
+        displayBoard();
+        // is there a isWinner? if so, display isWinner message, exit. else continue
 
-    // if playerTurn is odd its X playerTurn
-    cout << "X playerTurn. Enter the number where you want to place X: ";
+        // if playerTurn is odd its X playerTurn
+        cout << "X playerTurn. Enter the number where you want to place X: ";
 
-    // take input
-    cin >> playerChoice;
+        // take input
+        cin >> playerChoice;
 
-    // calculate array, if X playerTurn put X, otherwise O
-    updateBoard(boardArray, playerChoice, playerTurn);
+        // calculate array, if X playerTurn put X, otherwise O
+        updateBoard(boardArray, playerChoice, playerTurn);
 
-    // iterate playerTurn
-    playerTurn++;
+        // iterate playerTurn
+        playerTurn++;
+    }
 
     return 0;
 }
