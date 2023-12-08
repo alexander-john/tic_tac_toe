@@ -14,6 +14,7 @@
  */
 
 #include <iostream>
+#include "declarations.h"
 #include <stdlib.h>
 
 using namespace std;
@@ -25,6 +26,30 @@ string boardArray[9] = {"0", "1", "2", "3", "4", "5", "6", "7", "8"};
 int playerChoice = 0;
 int playerTurn = 0;
 bool isDraw = false;
+
+
+int main() {
+    std::cout << "Hello, World!" << std::endl;
+
+    while (playerTurn < 10) {
+        displayBoard();
+        // is there a isWinner? if so, display isWinner message, exit. else continue
+
+        // if playerTurn is odd its X playerTurn
+        cout << "X playerTurn. Enter the number where you want to place X:" << endl;
+
+        // take input
+        cin >> playerChoice;
+
+        // calculate array, if X playerTurn put X, otherwise O
+        updateBoard(boardArray, playerChoice, playerTurn);
+
+        // iterate playerTurn
+        playerTurn++;
+    }
+
+    return 0;
+}
 
 // function that determines whether the playerTurn is for X or O using whether
 // the playerTurn is odd or even. Odd being X starting at integer 1 and even
@@ -70,26 +95,3 @@ void updateBoard(string (&board)[9], int choice, int turn) {
 // function that takes board and determines whether there is a winner
 
 
-
-int main() {
-    std::cout << "Hello, World!" << std::endl;
-
-    while (playerTurn < 10) {
-        displayBoard();
-        // is there a isWinner? if so, display isWinner message, exit. else continue
-
-        // if playerTurn is odd its X playerTurn
-        cout << "X playerTurn. Enter the number where you want to place X:" << endl;
-
-        // take input
-        cin >> playerChoice;
-
-        // calculate array, if X playerTurn put X, otherwise O
-        updateBoard(boardArray, playerChoice, playerTurn);
-
-        // iterate playerTurn
-        playerTurn++;
-    }
-
-    return 0;
-}
