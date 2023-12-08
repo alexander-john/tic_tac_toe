@@ -74,12 +74,12 @@ void updateBoard(string (&board)[9], int choice, int turn) {
 int main() {
     std::cout << "Hello, World!" << std::endl;
 
-    while (playerTurn < 3) {
+    while (playerTurn < 10) {
         displayBoard();
         // is there a isWinner? if so, display isWinner message, exit. else continue
 
         // if playerTurn is odd its X playerTurn
-        cout << "X playerTurn. Enter the number where you want to place X: ";
+        cout << "X playerTurn. Enter the number where you want to place X:" << endl;
 
         // take input
         cin >> playerChoice;
